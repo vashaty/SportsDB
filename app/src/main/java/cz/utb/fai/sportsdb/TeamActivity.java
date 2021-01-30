@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +41,9 @@ public class TeamActivity extends AppCompatActivity{
         LinearLayout upcomingLayout = findViewById(R.id.activity_team_view_upcoming);
         LinearLayout latestLayout = findViewById(R.id.activity_team_view_latest);
         TextView teamName = findViewById(R.id.activity_team_label);
+        ImageView teamLogo = findViewById(R.id.activity_team_image);
         teamName.setText(b.getString("teamName"));
+        Picasso.get().load(b.getString("teamLogo")).into(teamLogo);
 
 
         CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(upcomingLayout,this);

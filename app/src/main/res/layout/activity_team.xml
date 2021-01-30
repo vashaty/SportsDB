@@ -21,16 +21,18 @@
 
         <ImageView
             android:id="@+id/activity_team_image"
-            android:layout_width="wrap_content"
-            android:layout_weight="10"
+            android:layout_width="0dp"
+
+            android:layout_weight="1"
             android:layout_height="116dp"
+            android:maxWidth="100dp"
             android:gravity="center_vertical"
             android:src="@drawable/ic_action_favs" />
 
         <TextView
             android:id="@+id/activity_team_label"
-            android:layout_width="wrap_content"
-            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="100dp"
             android:maxWidth="120dp"
             android:gravity="center_vertical"
@@ -44,7 +46,7 @@
         <ImageButton
             android:layout_weight="0"
             android:id="@+id/activity_team_fav"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_action_favs" />
     </LinearLayout>
