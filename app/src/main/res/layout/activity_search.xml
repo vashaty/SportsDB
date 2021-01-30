@@ -5,7 +5,7 @@
     android:padding="5dp"
     android:orientation="vertical" >
     <EditText
-        android:id="@+id/text_for_translation"
+        android:id="@+id/search_team_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_search"
@@ -20,5 +20,6 @@
         android:background="@drawable/button_shape"
         android:padding="5dp"
         android:layout_marginBottom="10dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:onClick="searchButtonClick"/>
 </LinearLayout>

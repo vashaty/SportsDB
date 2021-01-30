@@ -33,14 +33,19 @@ public class TeamActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
 
+        Bundle b = getIntent().getExtras();
+
         LinearLayout upcomingLayout = findViewById(R.id.activity_team_view_upcoming);
         LinearLayout latestLayout = findViewById(R.id.activity_team_view_latest);
+        TextView teamName = findViewById(R.id.activity_team_label);
+        teamName.setText(b.getString("teamName"));
+
         CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(upcomingLayout,this);
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String urlUpcoming ="https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=134836";
-        String urlLatest ="https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=134836";
+        String urlUpcoming ="https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=" + b.getString("teamID");
+        String urlLatest ="https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=" + b.getString("teamID");
 
         // Request a string response from the provided URL.
         StringRequest stringRequestUpcoming = new StringRequest(Request.Method.GET, urlUpcoming,
