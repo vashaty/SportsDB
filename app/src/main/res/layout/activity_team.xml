@@ -24,7 +24,7 @@
             android:layout_width="0dp"
 
             android:layout_weight="1"
-            android:layout_height="116dp"
+            android:layout_height="100dp"
             android:maxWidth="100dp"
             android:gravity="center_vertical"
             android:src="@drawable/ic_action_favs" />
@@ -35,20 +35,22 @@
             android:layout_weight="2"
             android:layout_height="100dp"
             android:maxWidth="120dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:text="Tampa bay lightning"
+            android:text="No Signal"
             android:autoSizeStepGranularity="10sp"
             android:textColor="@color/white"
             android:autoSizeTextType="uniform" />
 
         <ImageButton
             android:layout_weight="0"
+            android:scaleType="fitCenter"
             android:id="@+id/activity_team_fav"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_favs" />
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_action_favs"
+            android:background="@android:color/transparent"/>
     </LinearLayout>
 
 
