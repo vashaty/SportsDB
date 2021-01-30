@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:background="#0c3114">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom|left"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/activity_team_image"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="116dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_action_favs" />
+
+        <TextView
+            android:id="@+id/activity_team_label"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="100dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Bazern munich"
+            android:textColor="@color/white"
+            app:autoSizeMaxTextSize="50sp"
+            app:autoSizeMinTextSize="1sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+
+        <ImageButton
+            android:id="@+id/activity_team_fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_favs" />
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/activity_team_view_upcoming"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#051a0a">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:text="Upcoming Events"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:layout_marginBottom="5dp"/>
+<!--            <LinearLayout android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="10dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="10dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="10dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#0c3114"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="bottom|left">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Upconing Events"-->
+<!--                        android:textColor="@color/white" />-->
+
+
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+         </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/activity_team_view_latest"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="#051a0a">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="Latest Results"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_marginBottom="5dp"/>
+<!--        <LinearLayout android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginBottom="10dp">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginBottom="10dp">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginBottom="10dp">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0c3114"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_gravity="bottom|left">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1"-->
+<!--                    android:textColor="@color/white" />-->
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Upconing Events"-->
+<!--                    android:textColor="@color/white" />-->
+
+
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+    <!-- everything you already have -->
+</ScrollView>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SportsDB</string>
+    <string name="action_search">Search</string>
+    <string name="action_favorite">Favourites</string>
+    <string name="hint_search">Search &#8230;</string>
+    <string name="label_button_search">SEARCH</string>
+</resources>
