@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +40,7 @@ public class TeamActivity extends AppCompatActivity{
         LinearLayout latestLayout = findViewById(R.id.activity_team_view_latest);
         TextView teamName = findViewById(R.id.activity_team_label);
         teamName.setText(b.getString("teamName"));
+
 
         CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(upcomingLayout,this);
 
@@ -248,8 +250,6 @@ public class TeamActivity extends AppCompatActivity{
             case R.id.action_favorite:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
-                Intent intent2 = new Intent(context, TeamActivity.class);
-                startActivity(intent2);
                 return true;
 
             default:
