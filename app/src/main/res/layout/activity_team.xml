@@ -46,11 +46,11 @@
         <ImageButton
             android:layout_weight="0"
             android:scaleType="fitCenter"
-            android:id="@+id/activity_team_fav"
+            android:id="@+id/activity_team_fav_button"
             android:layout_width="35dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_action_favs"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
 

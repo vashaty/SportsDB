@@ -2,6 +2,7 @@ package cz.utb.fai.sportsdb;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +30,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class TeamActivity extends AppCompatActivity{
     Context context;
     @Override
@@ -38,20 +42,29 @@ public class TeamActivity extends AppCompatActivity{
 
         Bundle b = getIntent().getExtras();
 
+        String teamID = b.getString("teamID");
+        String teamName = b.getString("teamName");
+
+
         LinearLayout upcomingLayout = findViewById(R.id.activity_team_view_upcoming);
         LinearLayout latestLayout = findViewById(R.id.activity_team_view_latest);
-        TextView teamName = findViewById(R.id.activity_team_label);
-        ImageView teamLogo = findViewById(R.id.activity_team_image);
-        teamName.setText(b.getString("teamName"));
-        Picasso.get().load(b.getString("teamLogo")).into(teamLogo);
+        TextView teamNameLabel = findViewById(R.id.activity_team_label);
+        ImageView teamLogoView = findViewById(R.id.activity_team_image);
+        ImageButton buttonFav = findViewById(R.id.activity_team_fav_button);
+        teamNameLabel.setText(teamName);
+        Picasso.get().load(b.getString("teamLogo")).into(teamLogoView);
+
+        String SHARED_PREFERENCES_FILE_NAME = "appFileInternal";
+        SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, MODE_PRIVATE);
 
 
         CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(upcomingLayout,this);
 
+
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String urlUpcoming ="https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=" + b.getString("teamID");
-        String urlLatest ="https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=" + b.getString("teamID");
+        String urlUpcoming ="https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=" + teamID;
+        String urlLatest ="https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=" + teamID;
 
         // Request a string response from the provided URL.
         StringRequest stringRequestUpcoming = new StringRequest(Request.Method.GET, urlUpcoming,
@@ -185,57 +198,43 @@ public class TeamActivity extends AppCompatActivity{
 
         // Add the request to the RequestQueue.
         queue.add(stringRequestLatest);
+        if(isInFav (teamID,sharedPreferences)){
+            buttonFav.setColorFilter(Color.parseColor("#FFD700"));
+        } else {
+            buttonFav.setColorFilter(Color.parseColor("#FFFFFF"));
+        }
 
-
-//        //////////UPCOMING MATCH LAYOUT///////////////////
-//        LinearLayout matchLayout = new LinearLayout(this);
-//        matchLayout.setOrientation(LinearLayout.VERTICAL);
-//        LinearLayout.LayoutParams matchParams = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        matchParams.setMargins(0,0,0,10);
-//        matchLayout.setLayoutParams(matchParams);
-//        /////////////////////////////////////////
-//        upcomingLayout.addView(matchLayout);
-//
-//        //////////1 LINE OF UPCOMING MATCH LAYOUT///////////////////
-//        LinearLayout matchLayout1Line = new LinearLayout(this);
-//        LinearLayout.LayoutParams matchParams1Line = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        matchLayout1Line.setOrientation(LinearLayout.HORIZONTAL);
-//        matchLayout1Line.setBackgroundColor(Color.parseColor("#0c3114"));
-//        matchParams1Line.gravity = Gravity.BOTTOM;
-//        matchLayout1Line.setLayoutParams(matchParams1Line);
-//        //////////////////////////////////////////////////////////
-//        matchLayout.addView(matchLayout1Line);
-//
-//        TextView homeTeamText = new TextView(this);
-//        LinearLayout.LayoutParams homeTeamTextParams = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        homeTeamText.setLayoutParams(homeTeamTextParams);
-//        homeTeamText.setText("home team");
-//        homeTeamText.setTextColor(Color.parseColor("#FFFFFF"));
-//
-//        matchLayout1Line.addView(homeTeamText);
-//
-//        View view = new View(this);
-//        LinearLayout.LayoutParams viewParams = new LinearLayout.LayoutParams(0,0,1);
-//        matchLayout1Line.addView(view,viewParams);
-//
-//        TextView dateText = new TextView(this);
-//        LinearLayout.LayoutParams dateTextParams = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        dateText.setLayoutParams(dateTextParams);
-//        dateText.setText("10 Dec 20");
-//        dateText.setTextColor(Color.parseColor("#FFFFFF"));
-//
-//        matchLayout1Line.addView(dateText);
-
-
-
-
-
-
+        buttonFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                favouritesButton(teamID,teamName,buttonFav,sharedPreferences);
+            }
+        });
     }
+
+    private boolean isInFav (String id,SharedPreferences sharedPreferences){
+        Map<String, ?> allEntries = sharedPreferences.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            if (entry.getKey().equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void favouritesButton(String id, String teamName, ImageButton button,SharedPreferences sharedPreferences) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if(!isInFav(id, sharedPreferences)){
+            editor.putString(id, teamName);
+            button.setColorFilter(Color.parseColor("#FFD700"));
+            editor.apply();
+        } else {
+            editor.remove(id);
+            editor.apply();
+            button.setColorFilter(Color.parseColor("#FFFFFF"));
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
