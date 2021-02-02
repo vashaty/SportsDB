@@ -19,8 +19,12 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_main:
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
+                return true;
+
             case R.id.action_search:
-                // User chose the "Settings" item, show the app settings UI...
                 Intent intent = new Intent(this, SearchActivity.class);
                 startActivity(intent);
                 return true;
@@ -29,6 +33,8 @@ public class MenuActivity extends AppCompatActivity {
                 Intent intentFav = new Intent(this, FavouritesActivity.class);
                 startActivity(intentFav);
                 return true;
+
+
 
             default:
                 // If we got here, the user's action was not recognized.
