@@ -19,14 +19,6 @@
             android:background="@color/black"
             android:textColor="@color/white"
             android:gravity="center"/>
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Favourites"-->
-<!--            android:textSize="25dp"-->
-<!--            android:background="@drawable/stroke"-->
-<!--            android:textColor="@color/white"-->
-<!--            />-->
     </LinearLayout>
 
 

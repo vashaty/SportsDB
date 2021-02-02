@@ -54,6 +54,8 @@ public class CreateLayoutHelper extends AppCompatActivity {
         text.setLayoutParams(homeTeamTextParams);
         text.setText(textString);
         text.setTextColor(Color.parseColor("#FFFFFF"));
+        text.setPadding(10,4,10,4);
+        text.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16.5F);
         return text;
     }
 
@@ -79,25 +81,4 @@ public class CreateLayoutHelper extends AppCompatActivity {
         return view;
     }
 
-//        upcomingLayout.addView(matchLayout);
-//
-//
-//        matchLayout.addView(matchLayout1Line);
-//
-//
-//
-//        matchLayout1Line.addView(homeTeamText);
-//
-//    View view = new View(this);
-//    LinearLayout.LayoutParams viewParams = new LinearLayout.LayoutParams(0,0,1);
-//        matchLayout1Line.addView(view,viewParams);
-
-//    TextView dateText = new TextView(this);
-//    LinearLayout.LayoutParams dateTextParams = new LinearLayout.LayoutParams(
-//            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        dateText.setLayoutParams(dateTextParams);
-//        dateText.setText("10 Dec 20");
-//        dateText.setTextColor(Color.parseColor("#FFFFFF"));
-//
-//        matchLayout1Line.addView(dateText);
 }

@@ -33,33 +33,7 @@ public class SearchActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_search:
-//                // User chose the "Settings" item, show the app settings UI...
-//                Intent intent = new Intent(context, SearchActivity.class);
-//                startActivity(intent);
-//                return true;
-//
-//            case R.id.action_favorite:
-//                Intent intentFav = new Intent(context, FavouritesActivity.class);
-//                startActivity(intentFav);
-//                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+
     public void searchButtonClick(View v)
     {
         InputMethodManager inputManager = (InputMethodManager)
@@ -87,13 +61,17 @@ public class SearchActivity extends MenuActivity {
                         {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            // 2. Z PROMENNE jsonObject ZISKAME "responseData" (viz struktura JSONu odpovedi)
                             JSONArray teams = jsonObject.getJSONArray("teams");
                             for (int i = 0; i<teams.length();i++){
+
                                 JSONObject team =teams.getJSONObject(i);
+
                                 String teamName = team.getString("strTeam");
+
                                 String teamID = team.getString("idTeam");
+
                                 String teamLogo = team.getString("strTeamBadge");
+
                                 TextView text = createLayoutHelper.CreateTextFavs(teamName, teamID);
                                 text.setOnClickListener(new View.OnClickListener() {
                                     @Override

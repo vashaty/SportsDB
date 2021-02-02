@@ -43,17 +43,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#0c3114"
-        android:paddingTop="10dp"
         android:id="@+id/activity_searchLayout">
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Favourites"-->
+<!--            android:textSize="25dp"-->
+<!--            android:background="@drawable/stroke"-->
+<!--            android:textColor="@color/white" />-->
     </LinearLayout>
 
-        <!--        <TextView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Favourites"-->
-        <!--            android:textSize="25dp"-->
-        <!--            android:background="@drawable/stroke"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            />-->
+
     </LinearLayout>
 </ScrollView>
