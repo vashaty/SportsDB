@@ -3,14 +3,19 @@ package cz.utb.fai.sportsdb;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,10 +37,22 @@ public class SearchActivity extends MenuActivity {
         context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        EditText teamSearch = (EditText)  findViewById(R.id.search_team_text);
+        Button button = findViewById(R.id.search_button);
+        button.setEnabled(false);
+        teamSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean b) {
+                if(b) button.setEnabled(true);
+            }
+        });
     }
 
     public void searchButtonClick(View v)
     {
+        LinearLayout layout = findViewById(R.id.activity_searchLayout);
+        layout.removeAllViews();
+
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -44,8 +61,6 @@ public class SearchActivity extends MenuActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
         EditText teamSearch = (EditText)  findViewById(R.id.search_team_text);
-        LinearLayout layout = findViewById(R.id.activity_searchLayout);
-        layout.removeAllViews();
 
         CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(layout, context);
 
@@ -92,6 +107,7 @@ public class SearchActivity extends MenuActivity {
                         }
                         catch (JSONException e)
                         {
+                            Toast.makeText(context, "No results found", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
@@ -102,6 +118,7 @@ public class SearchActivity extends MenuActivity {
                     public void onErrorResponse(VolleyError error)
                     {
 //                        textView.setText("That didn't work!");
+                        Toast.makeText(context, "No internet connection", Toast.LENGTH_SHORT).show();
                     }
                 });
 
