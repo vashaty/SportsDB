@@ -1,7 +1,10 @@
 package cz.utb.fai.sportsdb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 public class CreateLayoutHelper extends AppCompatActivity {
     LinearLayout upcomingLayout;
@@ -52,6 +56,21 @@ public class CreateLayoutHelper extends AppCompatActivity {
         text.setTextColor(Color.parseColor("#FFFFFF"));
         return text;
     }
+
+    public TextView CreateTextFavs (String textString, String id)
+    {
+        TextView text = new TextView(context);
+        LinearLayout.LayoutParams homeTeamTextParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        text.setLayoutParams(homeTeamTextParams);
+        text.setText(textString);
+        text.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+        text.setBackground(AppCompatResources.getDrawable(context, R.drawable.stroke));
+        text.setTextColor(Color.parseColor("#FFFFFF"));
+
+        return text;
+    }
+
     public View CreateView ()
     {
         View view = new View(context);

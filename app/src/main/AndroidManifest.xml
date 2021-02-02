@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SportsDB">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".TeamActivity"></activity>
-        <activity android:name=".SplashActivity"
+        <activity android:name=".FavouritesActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".TeamActivity" />
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/Theme.SportsDB.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

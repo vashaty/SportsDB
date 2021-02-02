@@ -47,8 +47,8 @@ public class SearchActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_favorite:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                Intent intentFav = new Intent(context, FavouritesActivity.class);
+                startActivity(intentFav);
                 return true;
 
             default:
