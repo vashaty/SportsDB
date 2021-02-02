@@ -139,13 +139,10 @@ public class TeamActivity extends MenuActivity{
                     @Override
                     public void onResponse(String response)
                     {
-                        // ZPRACOVANI JSONu:
                         try
                         {
-                            //1. Z DAT, KTERA JSME OBDRZELI VYTVORIME JSONObject
                             JSONObject jsonObject = new JSONObject(response);
 
-                            // 2. Z PROMENNE jsonObject ZISKAME "responseData" (viz struktura JSONu odpovedi)
                             JSONArray array = jsonObject.getJSONArray("results");
                             JSONObject event;
                             for (int j = 0; j < array.length();j++ ) {

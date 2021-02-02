@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,8 +62,19 @@ public class SearchActivity extends MenuActivity {
 //    }
     public void searchButtonClick(View v)
     {
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+
         RequestQueue queue = Volley.newRequestQueue(this);
         EditText teamSearch = (EditText)  findViewById(R.id.search_team_text);
+        LinearLayout layout = findViewById(R.id.activity_searchLayout);
+        layout.removeAllViews();
+
+        CreateLayoutHelper createLayoutHelper = new CreateLayoutHelper(layout, context);
+
         String urlSearch ="https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=" + teamSearch.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, urlSearch,
                 new Response.Listener<String>()
@@ -76,22 +89,28 @@ public class SearchActivity extends MenuActivity {
 
                             // 2. Z PROMENNE jsonObject ZISKAME "responseData" (viz struktura JSONu odpovedi)
                             JSONArray teams = jsonObject.getJSONArray("teams");
-                            JSONObject team =teams.getJSONObject(0);
-                            String teamName = team.getString("strTeam");
-                            String teamID = team.getString("idTeam");
-                            String teamLogo = team.getString("strTeamLogo");
+                            for (int i = 0; i<teams.length();i++){
+                                JSONObject team =teams.getJSONObject(i);
+                                String teamName = team.getString("strTeam");
+                                String teamID = team.getString("idTeam");
+                                String teamLogo = team.getString("strTeamBadge");
+                                TextView text = createLayoutHelper.CreateTextFavs(teamName, teamID);
+                                text.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(context, TeamActivity.class);
+                                        Bundle b = new Bundle();
 
-                            Intent intent = new Intent(context, TeamActivity.class);
-                            Bundle b = new Bundle();
+                                        b.putString("teamName", teamName);
+                                        b.putString("teamID", teamID);
+                                        b.putString("teamLogo", teamLogo);
 
-                            b.putString("teamName", teamName);
-                            b.putString("teamID", teamID);
-                            b.putString("teamLogo", teamLogo);
-
-                            intent.putExtras(b);
-                            startActivity(intent);
-
-
+                                        intent.putExtras(b);
+                                        startActivity(intent);
+                                    }
+                                });
+                                layout.addView(text);
+                            }
                         }
                         catch (JSONException e)
                         {
