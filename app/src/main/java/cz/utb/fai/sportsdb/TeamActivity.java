@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -101,6 +102,7 @@ public class TeamActivity extends MenuActivity{
                                         matchLayout1Line.addView(view);
 
                                         TextView dateText = createLayoutHelper.CreateText(event.getString("dateEvent"));
+                                        dateText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                                         matchLayout1Line.addView(dateText);
                                     } else{
                                         TextView teamText = createLayoutHelper.CreateText(event.getString("strAwayTeam"));
@@ -109,7 +111,9 @@ public class TeamActivity extends MenuActivity{
                                         View view = createLayoutHelper.CreateView();
                                         matchLayout1Line.addView(view);
 
-                                        TextView dateText = createLayoutHelper.CreateText(event.getString("strTime") + " UTC");
+                                        TextView dateText = createLayoutHelper.CreateText(event.getString("strTime"));
+                                        dateText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+
                                         matchLayout1Line.addView(dateText);
                                     }
                                 }
