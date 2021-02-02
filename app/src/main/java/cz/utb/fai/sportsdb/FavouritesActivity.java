@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import java.util.Map;
 
-public class FavouritesActivity extends AppCompatActivity {
+public class FavouritesActivity extends MenuActivity {
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,31 +53,31 @@ public class FavouritesActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                // User chose the "Settings" item, show the app settings UI...
-                Intent intent = new Intent(context, SearchActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.action_favorite:
-                Intent intentFav = new Intent(context, FavouritesActivity.class);
-                startActivity(intentFav);
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu, menu);
+//        return true;
+//    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_search:
+//                // User chose the "Settings" item, show the app settings UI...
+//                Intent intent = new Intent(context, SearchActivity.class);
+//                startActivity(intent);
+//                return true;
+//
+//            case R.id.action_favorite:
+//                Intent intentFav = new Intent(context, FavouritesActivity.class);
+//                startActivity(intentFav);
+//                return true;
+//
+//            default:
+//                // If we got here, the user's action was not recognized.
+//                // Invoke the superclass to handle it.
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
 }
