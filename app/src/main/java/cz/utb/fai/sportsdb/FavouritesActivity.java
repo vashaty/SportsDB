@@ -33,15 +33,17 @@ public class FavouritesActivity extends AppCompatActivity {
 
         Map<String, ?> allEntries = sharedPreferences.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            TextView text = layoutHelper.CreateTextFavs(entry.getValue().toString(), entry.getKey());
+            String teamName = entry.getValue().toString().split(";")[0];
+            TextView text = layoutHelper.CreateTextFavs(teamName, entry.getKey());
             text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, TeamActivity.class);
                     Bundle b = new Bundle();
 
-                    b.putString("teamName", entry.getValue().toString());
+                    b.putString("teamName", teamName);
                     b.putString("teamID", entry.getKey());
+                    b.putString("teamLogo", entry.getValue().toString().split(";")[1]);
 
                     intent.putExtras(b);
                     startActivity(intent);

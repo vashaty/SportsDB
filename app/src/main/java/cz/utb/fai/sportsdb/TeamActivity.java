@@ -44,6 +44,7 @@ public class TeamActivity extends AppCompatActivity{
 
         String teamID = b.getString("teamID");
         String teamName = b.getString("teamName");
+        String teamLogo = b.getString("teamLogo");
 
 
         LinearLayout upcomingLayout = findViewById(R.id.activity_team_view_upcoming);
@@ -52,7 +53,7 @@ public class TeamActivity extends AppCompatActivity{
         ImageView teamLogoView = findViewById(R.id.activity_team_image);
         ImageButton buttonFav = findViewById(R.id.activity_team_fav_button);
         teamNameLabel.setText(teamName);
-        Picasso.get().load(b.getString("teamLogo")).into(teamLogoView);
+        Picasso.get().load(teamLogo).into(teamLogoView);
 
         String SHARED_PREFERENCES_FILE_NAME = "appFileInternal";
         SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES_FILE_NAME, MODE_PRIVATE);
@@ -207,7 +208,7 @@ public class TeamActivity extends AppCompatActivity{
         buttonFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                favouritesButton(teamID,teamName,buttonFav,sharedPreferences);
+                favouritesButton(teamID,teamName,buttonFav,sharedPreferences, teamLogo);
             }
         });
     }
@@ -222,10 +223,10 @@ public class TeamActivity extends AppCompatActivity{
         return false;
     }
 
-    public void favouritesButton(String id, String teamName, ImageButton button,SharedPreferences sharedPreferences) {
+    public void favouritesButton(String id, String teamName, ImageButton button,SharedPreferences sharedPreferences, String teamLogo) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if(!isInFav(id, sharedPreferences)){
-            editor.putString(id, teamName);
+            editor.putString(id, teamName +";"+ teamLogo);
             button.setColorFilter(Color.parseColor("#FFD700"));
             editor.apply();
         } else {
