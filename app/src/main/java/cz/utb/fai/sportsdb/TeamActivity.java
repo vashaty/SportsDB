@@ -78,10 +78,8 @@ public class TeamActivity extends MenuActivity{
                         // ZPRACOVANI JSONu:
                         try
                         {
-                            //1. Z DAT, KTERA JSME OBDRZELI VYTVORIME JSONObject
                             JSONObject jsonObject = new JSONObject(response);
 
-                            // 2. Z PROMENNE jsonObject ZISKAME "responseData" (viz struktura JSONu odpovedi)
                             JSONArray array = jsonObject.getJSONArray("events");
                             JSONObject event;
                             for (int j = 0; j < array.length();j++ ) {
@@ -104,6 +102,7 @@ public class TeamActivity extends MenuActivity{
                                         TextView dateText = createLayoutHelper.CreateText(event.getString("dateEvent"));
                                         dateText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                                         matchLayout1Line.addView(dateText);
+
                                     } else{
                                         TextView teamText = createLayoutHelper.CreateText(event.getString("strAwayTeam"));
                                         matchLayout1Line.addView(teamText);
@@ -200,6 +199,7 @@ public class TeamActivity extends MenuActivity{
 
         // Add the request to the RequestQueue.
         queue.add(stringRequestLatest);
+
         if(isInFav (teamID,sharedPreferences)){
             buttonFav.setColorFilter(Color.parseColor("#FFD700"));
         } else {
